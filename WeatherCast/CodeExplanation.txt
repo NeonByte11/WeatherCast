@@ -1,0 +1,130 @@
+ HTML and CSS code into bullet points with explanations of their functionalities:
+axios install
+### HTML Code:
+
+This HTML code is for a weather dashboard webpage called "WeatherCast". Here's a simple explanation:
+
+- The `<!DOCTYPE html>` declaration specifies the document type and version of HTML.
+- The `<html lang="en">` tag defines the language of the document.
+- The `<head>` section contains metadata about the document, such as character set, viewport settings, and descriptions for search engines.
+- Inside the `<head>`, there are `<meta>` tags for defining character set, viewport settings, and descriptions for search engines.
+- The `<title>` tag sets the title of the webpage.
+- `<link>` tags import external stylesheets and define fonts.
+- The `<script>` tags import external JavaScript libraries and scripts.
+- The `<body>` section contains the content of the webpage, including headers, forms, maps, and weather forecast sections.
+- The `<footer>` section contains footer content for the webpage.
+- External JavaScript libraries like Gsap, Scroll Trigger, and Three.js are imported for various effects and functionality.
+- The webpage appears to include a search bar, current weather display, forecast, and global weather overview sections.
+
+Overall, this HTML code creates a weather dashboard webpage with various features and functionalities for users to explore and interact with weather information.
+
+### CSS Code:
+This CSS code defines custom variables (also known as CSS custom properties) using the `:root` pseudo-class, which sets global values for various aspects of the website's styling. Here's a breakdown in simple terms:
+
+1. `:root`: This pseudo-class targets the root element of the document, allowing you to define global variables.
+2. Custom Variables: Variables like `--main-bg`, `--main-text`, `--container-bg`, etc., are defined to store color values, gradients, shadows, and other styling properties.
+3. `.dark`: This class contains alternative values for the custom variables, intended for use in a dark mode theme.
+4. Element & Text Styles: Defines styles for HTML elements like headings (`h1`, `h2`, `h3`), paragraphs (`p`), links (`a`), etc.
+5. Search Bar & Suggestions: Styles for search input, button, and suggestions dropdown.
+6. Theme Toggle Switch: Styling for a switch used to toggle between light and dark themes.
+7. Container Content: Styles for containers displaying weather forecast and other information.
+8. Media Queries: Adjustments for responsiveness on different screen sizes.
+
+Overall, this CSS code sets up a flexible and visually appealing design for a weather forecast website, with options for both light and dark themes.
+
+JavaScript code and its functionalities:
+
+### Initialization and Libraries:
+
+1. **Shery Library:**
+   - `Shery.mouseFollower();`: Initializes the Shery library for mouse tracking.
+   - `Shery.makeMagnet(".magnet");`: Applies magnetism effect to elements with the class "magnet".
+
+2. **Service Worker Registration:**
+   - Registers a service worker (`/service-worker.js`) if the browser supports it. Service workers enable offline capabilities and caching.
+
+### Weather App:
+
+3. **WeatherService Class:**
+   - A class that manages weather-related functionality.
+   - Constructor sets OpenWeatherMap API key, base URLs, temperature units, geolocation button, and an array to store city data.
+   - Methods:
+      - `byName(location)`: Fetches weather data by city name using Axios.
+      - `fetchDailyForecast(coordinates)`: Fetches daily forecast data based on latitude and longitude.
+      - `byGeolocation(position)`: Fetches weather data based on geolocation.
+      - `displaySelectedLocationWeather(location)`: Displays weather data for a selected location.
+      - `initializeGeolocation()`: Initializes the geolocation button click event.
+      - `fetchCityList()`: Fetches city data from `/json/cities.json`.
+      - `getSavedLocation()`: Retrieves the user's saved location from local storage.
+      - `renderIcons(location, dataId, dataIcon, imgEl)`: Renders weather icons based on OpenWeatherMap data.
+
+### Theme Manager:
+
+4. **ThemeManager Object:**
+   - Manages the theme (light/dark) of the webpage.
+   - Methods:
+      - `initialize()`: Initializes theme toggle button and retrieves saved theme from local storage.
+      - `toggleTheme()`: Toggles between light and dark themes.
+      - `getSavedTheme()`: Retrieves the saved theme from local storage and applies it.
+
+### Search Manager:
+
+5. **SearchManager Object:**
+   - Manages the search functionality for cities.
+   - Methods:
+      - `initialize()`: Initializes search form, input, and events.
+      - `submitCity(event)`: Handles city submission on form submit.
+      - `typeInput()`: Handles input typing for search suggestions.
+      - `clickOutsideInput(event)`: Clears suggestions if clicked outside the input field.
+      - `showSuggestions(suggestions)`: Displays search suggestions.
+      - `clearSuggestions()`: Clears search suggestions.
+
+### Time Manager:
+
+6. **TimeManager Object:**
+   - Manages date and time-related functionality.
+   - Methods:
+      - `convertUnixToTimezone(unix, timezone)`: Converts Unix timestamp to local time with the specified timezone.
+      - `formatDate(object, options, method)`: Formats date objects to strings.
+      - `formatDay(unix)`: Formats daily forecast Unix timestamps.
+      - `printLocalDateString(data, dateObject)`: Displays local date string.
+      - `displaySunsetSunriseTime(data, localDateObject, sunriseTime, sunsetTime)`: Displays sunset and sunrise times.
+      - `changeSceneryImage(data, localDateObject, sunriseTime, sunsetTime)`: Changes background scenery image based on time.
+
+### Selected Location Weather:
+
+7. **SelectedLocationWeather Object:**
+   - Manages the display of weather details for the selected location.
+   - Methods:
+      - `initialize()`: Initializes temperature unit toggle event.
+      - `toggleTemp(event)`: Toggles between Fahrenheit and Celsius.
+      - `displayCurrentTemperature(response)`: Displays the current temperature and other weather details.
+      - `displayWeatherDetails(data)`: Displays various weather details.
+      - `displayWeatherCondition(data)`: Displays a message based on weather conditions.
+
+### Daily Weather:
+
+8. **DailyWeather Object:**
+   - Manages the display of daily weather forecasts.
+   - Methods:
+      - `displayForecast(response)`: Displays daily weather forecast.
+   
+### Global Weather:
+
+9. **GlobalWeather Object:**
+   - Manages the display of global weather data for random cities.
+   - Methods:
+      - `initialize()`: Initializes click events and retrieves global temperatures.
+      - `getGlobalTemperatures()`: Fetches and displays global temperatures for random cities.
+      - `displayGlobalTemperatures(response, i, item)`: Displays global temperatures for a specific city.
+      - `updateWeatherData(event)`: Updates weather data when a global city is clicked.
+
+### Weather App Initialization:
+
+10. **Initialization:**
+    - Creates an instance of the `WeatherService` class with an OpenWeatherMap API key.
+    - Calls various initialization methods for geolocation, city list fetching, saved location retrieval, theme management, search management, and weather display.
+
+**Chatbot Integration:**
+   - The web page includes a chatbot using GPT-4 and GPT-3.4 Turbo api, allowing users to interact with the weather assistant.
+   - The chatbot provides information about the weather and responds to user queries.
